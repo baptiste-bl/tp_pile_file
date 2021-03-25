@@ -1,0 +1,73 @@
+Script started on 2021-03-25 10:41:20+01:00                                                                                                                             
+ 
+charles@pclinux:~/tp_pile_file]1;~/tp_pile_file
+./tp9
+charles@pclinux:~/tp_pile_file]1;~/tp_pile_file
+ SDA1 TP9
+ 1 : tester mon fichier pile.c
+ 2 : tester mon fichier file.c
+ 3 : afficher et compter les permutations d'une chaine
+ 4 : afficher et compter les solutions pour un échiquier 
+ 0 :  QUITTER  
+ votre choix ?  1
+
+ajout de 10 dans la pile
+
+ajout de 20 dans la pile
+
+affichage de la pile
+20
+10
+
+dépiler
+
+affichage de la pile
+10
+
+ajout de 30 dans la pile
+
+affichage du sommet
+30
+
+affichage de la hauteur
+1
+depiler une pile vide:
+erreur pile vide
+
+
+
+
+SDA1 TP9
+ 1 : tester mon fichier pile.c
+ 2 : tester mon fichier file.c
+ 3 : afficher et compter les permutations d'une chaine
+ 4 : afficher et compter les solutions pour un échiquier 
+ 0 :  QUITTER  
+ votre choix ?  2
+ajout de 5, 6, 7 
+affichage de la file
+5
+6
+7
+premier = 5 
+fonction retirer
+6
+7
+ajoute de l'element retirer
+6
+7
+5
+ajout de plein de 5
+6
+7
+5
+5
+5
+5
+5
+5
+5
+5
+plein ou pas : 1
+on retire pleins de fois
+file vide : 1

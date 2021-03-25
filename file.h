@@ -17,5 +17,4 @@ int fileVide(const  T_File *); // qd Tete == 0
 int filePleine(const  T_File *); // qd MAX elts dans la file 
 T_Elt  premier(T_File *); //valeur en tete de file
 void afficherFile(T_File *); 
-
-
+void testFile(T_File *); 
