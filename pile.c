@@ -122,9 +122,39 @@ void testPile(T_Pile *P)
     printf("depiler une pile vide:\n");
     depiler(P,&test);
 }
+int pileValide(T_Pile *P)
+{
+    char ch[P->nbElts];
+    T_Pile P2;
+    initPile(&P2);
+    int ret = P->nbElts;
+    char e[1];
+    int i;
+    for(int i=0;i < ret;i++)
+    {
+        depiler(&P,e);
+        empiler(&P2,e);
+        ch[i] = e;
+        for(int j=0; j < i;j++)
+        {
+            if(ch[j] == ch[i]){
+                return 0;
+            }
+        }
+    }
+    for(i = 0; i < ret;i++)
+    {
+        depiler(&P2,&e);
+        empiler(P,e);
+    }  
+    return 1;
+}
+void Permutation(T_Pile *P,char *ch){
+    //while((pileValide(P))
+    //{
 
-
-
+    //}
+}
 
 
 

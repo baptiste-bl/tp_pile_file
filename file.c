@@ -13,7 +13,8 @@ int  retirer(T_File *ptrF,T_Elt *ptrE) //si pas vide, en tete de file
     if(fileVide(ptrF)!=1){
         *ptrE = (ptrF->Elts[0]);
         for(int i = 0; i<ptrF->Queue; i++){
-            ptrF->Elts[i] = ptrF->Elts[i+1];
+            //ptrF->Elts[i] = ptrF->Elts[i+1];
+            affecterElt(&(ptrF->Elts[i]),&(ptrF->Elts[i+1]));
         }
         ptrF->Queue--;
         return 1;
@@ -29,7 +30,8 @@ int ajouter(T_File *ptrF,T_Elt *ptrE) // si espace libre, ajout en queue
     }
     else{
         ptrF->Queue++;
-        ptrF->Elts[ptrF->Queue] = *ptrE;
+        affecterElt(&(ptrF->Elts[ptrF->Queue]),ptrE);
+        //ptrF->Elts[ptrF->Queue] = *ptrE;
         if(ptrF->Tete==-1){
             ptrF->Tete=0;
         }
@@ -37,10 +39,10 @@ int ajouter(T_File *ptrF,T_Elt *ptrE) // si espace libre, ajout en queue
     }
 } 
 
-int fileVide(const  T_File *prtF) // qd Tete == 0 return 0;
+int fileVide(const  T_File *ptrF) // qd Tete == 0 return 0;
 
 {
-    if(prtF->Tete == prtF->Queue+1){
+    if(ptrF->Tete == ptrF->Queue+1){
         return 1;
     }
     else return 0 ; 
@@ -67,8 +69,11 @@ T_Elt  premier(T_File *ptrF) //valeur en tete de file
 
 void afficherFile(T_File *ptrF)
 {
-    for(int i =0; i<ptrF->Queue+1; i++){
-        afficherElt(&ptrF->Elts[i]);
+    T_Elt e;
+    for(int i =0; i<=ptrF->Queue; i++){
+        retirer(ptrF,&e);
+        printf("%d\n",e);
+        ajouter(ptrF,&e);
     }
 
 }
@@ -81,30 +86,30 @@ void testFile(T_File *ptrF){
     T_Elt d = 8;
     T_Elt e;
     printf("ajout de 5, 6, 7 \n");
-    ajouter(ptrF, &a);
-    ajouter(ptrF, &b);
-    ajouter(ptrF, &c);
-    printf("affichage de la file");
+    ajouter(ptrF,&a);
+    ajouter(ptrF,&b);
+    ajouter(ptrF,&c);
+    printf("affichage de la file\n");
     afficherFile(ptrF);
 
     printf("\npremier = %d \n" ,premier(ptrF));
-    printf("fonction retirer");
-    retirer(ptrF, &e);
+    printf("fonction retirer\n");
+    retirer(ptrF,&e);
     afficherFile(ptrF);
-    printf("\najoute de l'element retirer");
+    printf("\najout de l'element retirer\n");
     ajouter(ptrF,&e);
     afficherFile(ptrF);
     printf("\najout de plein de 5");
 
-    for(int i =0; i<50; i++){
+    for(int i =0; i<5; i++){
         ajouter(ptrF,&a);
         
 
     }
     afficherFile(ptrF);
     printf("\nplein ou pas : %d",filePleine(ptrF));
-    printf("\non retire pleins de fois");
-    for(int i =0; i<50; i++){
+    printf("\non retire plusieurs fois\n");
+    for(int i =0; i<20; i++){
         retirer(ptrF,&a);
     }
     afficherFile(ptrF);
